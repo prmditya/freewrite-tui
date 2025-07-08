@@ -1,7 +1,6 @@
 use crossterm::event::{KeyCode, KeyEventKind, KeyModifiers};
 use std::io;
 
-// Import from the crate root
 use crate::app_logic::{App, AppState, PanelFocus};
 use crate::config::DEFAULT_SESSION_DURATION_MINS;
 
@@ -104,8 +103,9 @@ fn handle_freewrite_event(
             app.current_state = AppState::Quitting;
         }
         KeyCode::Esc => {
-            app.end_session();
-            app.reset_to_main_menu();
+            // Save and transition to SessionEnd when escaping
+            app.end_session(); // This correctly sets state to AppState::SessionEnd
+            // app.reset_to_main_menu(); // <--- REMOVE THIS LINE!
         }
         KeyCode::Backspace => {
             if !app.text.is_empty() {
@@ -128,6 +128,7 @@ fn handle_freewrite_event(
 fn handle_session_end_event(app: &mut App, key_code: KeyCode) {
     match key_code {
         KeyCode::Enter => {
+            // This is the correct place to reset to main menu after session end is acknowledged
             app.reset_to_main_menu();
         }
         KeyCode::Char('q') | KeyCode::Char('Q') => {
@@ -140,31 +141,28 @@ fn handle_session_end_event(app: &mut App, key_code: KeyCode) {
 fn handle_custom_duration_input_event(app: &mut App, key_code: KeyCode) -> io::Result<()> {
     match key_code {
         KeyCode::Enter => {
-            // Try to parse the input as a number
             let custom_duration: u64 = app
                 .custom_duration_input_text
                 .trim()
                 .parse()
-                .unwrap_or(DEFAULT_SESSION_DURATION_MINS); // Fallback to default if parse fails
+                .unwrap_or(DEFAULT_SESSION_DURATION_MINS);
 
             app.start_session(custom_duration);
-            app.custom_duration_input_text.clear(); // Clear input field
+            app.custom_duration_input_text.clear();
         }
         KeyCode::Esc => {
-            // Cancel input, return to main menu
             app.current_state = AppState::MainMenu;
-            app.custom_duration_input_text.clear(); // Clear input field
+            app.custom_duration_input_text.clear();
         }
         KeyCode::Backspace => {
             app.custom_duration_input_text.pop();
         }
         KeyCode::Char(c) => {
-            // Only allow digits
             if c.is_ascii_digit() {
                 app.custom_duration_input_text.push(c);
             }
         }
-        _ => {} // Ignore other keys
+        _ => {}
     }
     Ok(())
 }
