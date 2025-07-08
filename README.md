@@ -2,18 +2,6 @@
 
 A simple and elegant Terminal User Interface (TUI) application designed for distraction-free freewriting sessions. Write freely without the clutter of traditional word processors, focusing purely on your thoughts.
 
-## Table of Contents
-
-- [About](https://www.google.com/search?q=%23about)
-- [Features](https://www.google.com/search?q=%23features)
-- [Installation](https://www.google.com/search?q=%23installation)
-- [Usage](https://www.google.com/search?q=%23usage)
-- [Configuration](https://www.google.com/search?q=%23configuration)
-- [Screenshots](https://www.google.com/search?q=%23screenshots)
-- [Contributing](https://www.google.com/search?q=%23contributing)
-- [License](https://www.google.com/search?q=%23license)
-- [Acknowledgments](https://www.google.com/search?q=%23acknowledgments)
-
 ## About
 
 `freewrite-tui` is built with Rust and the `ratatui` library, offering a clean, minimalist environment for writers. It encourages continuous writing by providing timed sessions and automatic saving, helping you overcome writer's block and capture your ideas efficiently.
@@ -26,7 +14,7 @@ A simple and elegant Terminal User Interface (TUI) application designed for dist
 - **Session Summary:** Get a summary including word count and Words Per Minute (WPM) at the end of each session.
 - **Recent Files Browser:** Easily view your past freewrite sessions directly from the main menu.
 - **Intuitive Navigation:** Simple keyboard controls for navigating menus and writing.
-- **Minimalist Design:** Clean aesthetics with customizable colors.
+- **Minimalist Design:** Clean aesthetics.
 
 ## Installation
 
@@ -90,6 +78,11 @@ If you build the application you can launch it anywhere **but for now it'll save
 You can customize various application settings, including default session duration and UI colors, by modifying the `src/config.rs` file in the source code.
 
 ## Screenshots
+
+![image](https://github.com/user-attachments/assets/9de8029f-a894-4c2b-830c-9fc6a636948b)
+![image](https://github.com/user-attachments/assets/7405502b-fad7-41dc-85df-37d853ba96c0)
+![image](https://github.com/user-attachments/assets/390ab791-a47c-41a6-af11-730192b6a130)
+
 
 ## Contributing
 
