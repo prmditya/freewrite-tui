@@ -82,7 +82,7 @@ You can customize various application settings, including default session durati
 ![image](https://github.com/user-attachments/assets/9de8029f-a894-4c2b-830c-9fc6a636948b)
 ![image](https://github.com/user-attachments/assets/7405502b-fad7-41dc-85df-37d853ba96c0)
 ![image](https://github.com/user-attachments/assets/390ab791-a47c-41a6-af11-730192b6a130)
-
+![image](https://github.com/user-attachments/assets/852ebb7c-e1dd-4442-9ff6-b70ba8ed7ccc)
 
 ## Contributing
 
